@@ -227,14 +227,14 @@ static void lv_slider_event(const lv_obj_class_t * class_p, lv_event_t * e)
             new_value += slider->bar.min_value;
         }
 
-        int32_t real_max_value = slider->bar.max_value;
-        int32_t real_min_value = slider->bar.min_value;
+        int32_t real_max_value = slider->bar.max_value - 19;
+        int32_t real_min_value = slider->bar.min_value + 19;
         /*Figure out the min. and max. for this mode*/
         if(slider->value_to_set == &slider->bar.start_value) {
             real_max_value = slider->bar.cur_value;
         }
         else {
-            real_min_value = slider->bar.start_value;
+            real_min_value = slider->bar.start_value + 19;
         }
 
         new_value = LV_CLAMP(real_min_value, new_value, real_max_value);
